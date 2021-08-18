@@ -1,10 +1,9 @@
-const { app, BrowserWindow } = require("electron")
-const { h, w } = require("./config.json")
+const { app, BrowserWindow, ipcMain } = require("electron")
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: w,
-        height: h,
+        width: 497,
+        height: 543,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
@@ -12,13 +11,19 @@ function createWindow() {
     })
 
     win.loadFile('pages/index.html')
-    win.resizable = true
+    win.resizable = false
 }
 
 app.whenReady().then(function() {
     createWindow()
     app.on('activate', () => {
         if(BrowserWindow.getAllWindows().length() === 0) createWindow()
+    })
+
+    ipcMain.on('event-ping', (_evt, arg) => {
+        if(arg == true) {
+            app.quit()
+        }
     })
 })
 

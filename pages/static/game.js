@@ -3,8 +3,24 @@
  * @param {Number} max
 */
 
+function verify(is, data) {
+    if(is == true) {
+        for(var i=0;i+1<=data.vars.length;i++) {
+            if(typeof data.vars[i] != data.type[i] && !String(data.type[i]).startsWith("~")) throw new TypeError(`Expected a ${data.type[i]}, got a ${typeof data.vars[i]}`)
+        }
+    } else {
+        for(var i=0;i+1<=data.vars.length;i++) {
+            if(typeof data.vars[i] == data.type[i] && !String(data.type[i]).startsWith("~")) throw new TypeError(`Expected anything but a ${typeof data.vars[i]}`)
+        }
+    }
+}
 
-function newButton(id, className, visible) {
+function newButton(id, className) {
+    verify(true, {
+        vars: [id, className],
+        type: ["~string", "string"]
+    })
+    
     var newb = document.createElement("button")
     newb.className = className
     newb.id = id
@@ -14,8 +30,11 @@ function newButton(id, className, visible) {
 }
 
 function randint(min, max) {
-    if(typeof min != "number") throw new TypeError(`Expected an int, got a ${typeof min}`)
-    if(typeof max != 'number') throw new TypeError(`Expected an int, got a ${typeof max}`)
+    verify(true, {
+        vars: [min, max],
+        type: ["number", "number"]
+    })
+
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -32,7 +51,6 @@ const button = {
 
 
 console.log("Page ready!")
-console.log(randint(1, 64))
 for(var i=1;i<=area;i++) {
     button.createNew(i, button.data.className, i)
 }
@@ -45,7 +63,7 @@ for(var j=0;j<=bombs;) {
     }
 }
 
-document.addEventListener("click", (e) => handler(e))
+document.addEventListener("click", handler)
 
 function handler(e) {
     e.preventDefault()
@@ -95,7 +113,7 @@ function handler(e) {
         target.style.backgroundColor = "yellow"
     }
     if(b == 3) {
-        target.style.backgroundColor = "lightred"
+        target.style.backgroundColor = "lightcoral"
     }
     if(b == 4) {
         target.style.backgroundColor = "red"

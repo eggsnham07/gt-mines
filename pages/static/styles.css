@@ -5,4 +5,7 @@ button.gamebutton {
 
 body {
     height: 599px;
+    max-width: 480px;
+    min-width: 480px;
+    overflow: hidden;
 }

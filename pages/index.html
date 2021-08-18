@@ -2,6 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" href="./static/styles.css">
+        <script>
+            const { ipcRenderer } = require("electron")
+            function quit() {
+                ipcRenderer.send('event-ping', true)
+            }
+        </script>
     </head>
     <body>
         <div id="game"></div>
