@@ -1,0 +1,21 @@
+{
+  "name": "mines",
+  "version": "0.0.1",
+  "description": "Javascript based Minesweeper",
+  "main": "main.js",
+  "build": {
+    "appId": "com.eggsnham.gt.Mines"
+  },
+  "homepage": "https://gt.eggsnham.com",
+  "scripts": {
+    "test": "electron ."
+  },
+  "author": {
+    "name": "eggsnham07",
+    "email": "eggsnham07@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^13.2.0"
+  }
+}
