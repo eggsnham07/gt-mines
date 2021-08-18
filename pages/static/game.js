@@ -1,7 +1,8 @@
-/**  
- * @param {Number} min
- * @param {Number} max
-*/
+/**
+ * 
+ * @param {Boolean} is 
+ * @param {JSON} data 
+ */
 
 function verify(is, data) {
     if(is == true) {
@@ -14,6 +15,12 @@ function verify(is, data) {
         }
     }
 }
+
+/**
+ * @param {Number} id 
+ * @param {String} className 
+ * @return {void}
+ */
 
 function newButton(id, className) {
     verify(true, {
@@ -28,6 +35,13 @@ function newButton(id, className) {
     newb.style.color = "#44444400"
     document.getElementById("game").appendChild(newb)
 }
+
+/**
+ * 
+ * @param {Number} min 
+ * @param {Number} max 
+ * @return {Number}
+ */
 
 function randint(min, max) {
     verify(true, {
@@ -64,6 +78,12 @@ for(var j=0;j<=bombs;) {
 }
 
 document.addEventListener("click", handler)
+
+/**
+ * 
+ * @param {Event} e 
+ * @return {void}
+ */
 
 function handler(e) {
     e.preventDefault()
