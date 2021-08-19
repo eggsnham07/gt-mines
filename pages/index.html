@@ -2,15 +2,27 @@
 <html>
     <head>
         <link rel="stylesheet" href="./static/styles.css">
+
         <script>
-            const { ipcRenderer } = require("electron")
-            function quit() {
-                ipcRenderer.send('event-ping', true)
+            function quit(){console.error("Window has not finished loading yet!")}
+            var load = function() {
+
+                var userAgent = navigator.userAgent.toLowerCase()
+                if(userAgent.indexOf(' electron/') > -1) {
+                    const { ipcRenderer } = require("electron")
+                    quit = function()  {
+                        ipcRenderer.send('event-ping', true)
+                    }
+                } else {
+                    document.getElementById("quit").remove()
+                }
             }
         </script>
     </head>
-    <body>
+    <body onload="load()">
         <div id="game"></div>
         <script src="./static/game.js"></script>
+        <br>
+        <button onclick="quit()" id="quit">Quit</button><button onclick="location.reload()">Reload</button>
     </body>
 </html>

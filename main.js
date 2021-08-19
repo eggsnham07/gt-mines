@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require("electron")
+const path = require("path")
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -6,7 +7,7 @@ function createWindow() {
         height: 543,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
         }
     })
 

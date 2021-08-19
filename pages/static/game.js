@@ -31,6 +31,7 @@ function newButton(id, className) {
     var newb = document.createElement("button")
     newb.className = className
     newb.id = id
+    newb.onclick = button.data.func
     newb.textContent = "??"
     newb.style.color = "#44444400"
     document.getElementById("game").appendChild(newb)
@@ -55,10 +56,11 @@ function randint(min, max) {
 }
 
 const area = 64
-const bombs = 7
+const bombs = 8
 const button = {
     data: { 
         className: "gamebutton",
+        func: handler
     },
     createNew: newButton
 }
@@ -69,15 +71,17 @@ for(var i=1;i<=area;i++) {
     button.createNew(i, button.data.className, i)
 }
 
-for(var j=0;j<=bombs;) {
+for(var j=1;j<=bombs;) {
     var bomb = document.getElementById(randint(1, 64))
     if(bomb != null) {
         bomb.id="bomb"
+        bomb.style.color = "#33333300"
+        bomb.textContent = "??"
         j++
     }
 }
 
-document.addEventListener("click", handler)
+//document.body.addEventListener("click", handler)
 
 /**
  * 
@@ -92,9 +96,18 @@ function handler(e) {
     var val = Number(target.id)
     var but = document.getElementsByClassName("gamebutton")
     if(target.id == "bomb") {
-        alert("You blew up!")
-        location.reload()
-    } else {
+        Array.prototype.forEach.call(but, (element) => {
+            if(element.id == "bomb") {
+                element.textContent = "X"
+                element.style.color = "red"
+            }
+        })
+        target.textContent = "X"
+        target.style.color = "red"
+        setTimeout(function() {
+            location.reload()
+        }, 2000)
+    } else if(target.className == "gamebutton") {
         var b = 0
         if(val-2 >= 0 && but[val-2].id == "bomb") {
             b++
@@ -120,6 +133,9 @@ function handler(e) {
         if(val-8 >= 0 && but[val-8].id == "bomb") {
             b++
         }
+
+        if(notBomb(val+1)) unlock(val+1)
+        if(notBomb(val-1)) unlock(val-1)
     }
 
     target.textContent = b
@@ -138,4 +154,34 @@ function handler(e) {
     if(b == 4) {
         target.style.backgroundColor = "red"
     }
+
+    var bot = 0
+    Array.prototype.forEach.call(but, (el) => {
+        console.log(el.id)
+        if(el.id != "bomb" && el.id != "clicked") {
+            bot++
+        }
+    })
+    if(bot == 0) {
+        alert("Game Over, You win!")
+    } else {
+        console.log("Not yet...")
+    }
+}
+
+/** 
+ * @param {Number} id
+ * @returns {Boolean} if tile is not a bomb
+*/
+
+function notBomb(id) {
+    if(document.getElementById(id) != null) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function unlock(id) {
+    document.getElementById(id).click()
 }
