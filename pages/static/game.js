@@ -140,6 +140,7 @@ function handler(e) {
 
     target.textContent = b
     target.style.color = "#333"
+    target.id = "clicked"
     
     if(b == 0) target.style.backgroundColor = "lightgreen"
     if(b == 1) {
@@ -154,6 +155,9 @@ function handler(e) {
     if(b == 4) {
         target.style.backgroundColor = "red"
     }
+    if(b == 5) {
+        target.style.backgroundColor = "brickred"
+    }
 
     var bot = 0
     Array.prototype.forEach.call(but, (el) => {
@@ -163,7 +167,15 @@ function handler(e) {
         }
     })
     if(bot == 0) {
-        alert("Game Over, You win!")
+        Array.prototype.forEach.call(but, (el) => {
+            if(el.id == "bomb") {
+                el.textContent = "X"
+                el.style.color = "red"
+            }
+        })
+        setTimeout(function() {
+        document.getElementById("top").innerHTML = "You win!, press reload to play again."
+        }, 400)
     } else {
         console.log("Not yet...")
     }
