@@ -1,7 +1,6 @@
-"use strict";
-let area = 64;
-let bombs = 8;
-let button = {
+var area = 64;
+var bombs = 8;
+var button = {
     data: {
         className: "gamebutton",
         func: handler
