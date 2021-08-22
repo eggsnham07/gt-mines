@@ -3,8 +3,8 @@ const button = {
     display: "block"
 }
 
-var Game = (function() {
-    function Game() {
+var Game = (function(): void {
+    function Game(): any {
         let area = 64
         let bombs = 8
         let blacklisted = [8, 24, 32, 48, 56, 64]
@@ -30,7 +30,7 @@ var Game = (function() {
             }
         }
     
-        function NewButton(id:number, className:string) {
+        function NewButton(id:number, className:string): void {
             var newb = document.createElement("button")
             newb.className = className
             newb.id = String(id)
@@ -46,7 +46,7 @@ var Game = (function() {
             return Math.floor(Math.random() * (max-min+1)) + min
         }
     
-        function handler(e) {
+        function handler(e): void {
             e.preventDefault()
             var target = e.target
             if(target.tagName != "BUTTON") return
