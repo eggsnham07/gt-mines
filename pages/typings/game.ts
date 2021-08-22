@@ -1,3 +1,8 @@
+const button = {
+    style: "none",
+    display: "block"
+}
+
 var Game = (function() {
     function Game() {
         let area = 64
