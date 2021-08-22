@@ -8,5 +8,8 @@
      },
      "exclude": [
          "node_modules"
+     ],
+     "files": [
+         "pages/typings/game.ts"
      ]
  }

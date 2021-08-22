@@ -12,7 +12,8 @@
   },
   "homepage": "https://gt.eggsnham.com",
   "scripts": {
-    "test": "electron ."
+    "test": "tsc -p tsconfig.json && echo \"Completed 'tsc -p tsconfig.json'\" && electron .",
+    "build": "tsc -p tsconfig.json"
   },
   "author": {
     "name": "eggsnham07",
@@ -21,6 +22,10 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^13.2.0",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^22.11.7",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "commonjs": "^0.0.1"
   }
 }
