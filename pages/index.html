@@ -11,7 +11,7 @@
                 if(userAgent.indexOf(' electron/') > -1) {
                     const { ipcRenderer } = require("electron")
                     quit = function()  {
-                        ipcRenderer.send('event-ping', true)
+                        ipcRenderer.send('quit-ping', true)
                     }
                 } else {
                     document.getElementById("quit").remove()
