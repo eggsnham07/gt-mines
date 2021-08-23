@@ -10,6 +10,9 @@
       "icon": "icon.png"
     }
   },
+  "bin": {
+    "gt-mines": "./bin/gtminesHandler.js"
+  },
   "homepage": "https://gt.eggsnham.com",
   "scripts": {
     "test": "electron .",
