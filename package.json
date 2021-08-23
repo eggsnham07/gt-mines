@@ -12,8 +12,9 @@
   },
   "homepage": "https://gt.eggsnham.com",
   "scripts": {
-    "test": "tsc -p tsconfig.json && echo \"Completed 'tsc -p tsconfig.json'\" && electron .",
-    "build": "tsc -p tsconfig.json"
+    "test": "electron .",
+    "build": "tsc -p tsconfig.json",
+    "start": "electron ."
   },
   "author": {
     "name": "eggsnham07",
@@ -26,7 +27,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@eggsnham07/ts-lib": "^0.0.6",
+    "@eggsnham07/ts-lib": "^0.0.7",
     "commonjs": "^0.0.1",
     "dotenv": "^9.0.2"
   }

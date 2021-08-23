@@ -1,5 +1,4 @@
 const { app, BrowserWindow, ipcMain } = require("electron")
-const path = require("path")
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -9,7 +8,7 @@ function createWindow() {
             nodeIntegration: true,
             contextIsolation: false
         },
-        icon: path.join(__dirname + "icon.png")
+        icon: "icon.png"
     })
     win.loadFile('pages/index.html')
     win.resizable = false
@@ -23,7 +22,7 @@ app.whenReady().then(() => {
 })
 
 app.on('window-all-closed', () => {
-    if(process.platform !== "darwin") app.quit()
+    if (process.platform !== "darwin") app.quit()
 })
 
 ipcMain.on('quit-ping', (event, arg) => {
