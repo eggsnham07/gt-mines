@@ -1,7 +1,3 @@
-var button = {
-    style: "none",
-    display: "block"
-};
 var Game = (function () {
     function Game() {
         var area = 64;
