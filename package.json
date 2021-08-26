@@ -1,6 +1,6 @@
 {
-  "name": "gt-mines",
-  "version": "1.0.0",
+  "name": "@eggsnham07/gt-mines",
+  "version": "0.0.1",
   "description": "Javascript based Minesweeper",
   "main": "main.js",
   "build": {

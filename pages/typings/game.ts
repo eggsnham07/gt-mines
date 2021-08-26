@@ -1,8 +1,3 @@
-const button = {
-    style: "none",
-    display: "block"
-}
-
 var Game = (function(): void {
     function Game(): any {
         let area = 64
