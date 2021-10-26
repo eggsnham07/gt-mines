@@ -2,7 +2,7 @@ var Game = (function(): void {
     function Game(): any {
         let area = 64
         let bombs = 8
-        let blacklisted = [8, 24, 32, 48, 56, 64]
+        let blacklisted:number[] = [8, 24, 32, 48, 56, 64]
         let button = {
             data: { 
                 className: "gamebutton",
