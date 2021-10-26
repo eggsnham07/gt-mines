@@ -3,12 +3,13 @@
         "target": "es6",
         "noImplicitAny": false,
         "sourceMap": true,
-        "outDir": "pages/static/"
-     },
-     "exclude": [
-         "node_modules"
-     ],
-     "files": [
-         "pages/typings/game.ts"
-     ]
+        "outDir": "./src"
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "files": [
+        "pages/typings/game.ts",
+        "main.ts"
+    ]
  }

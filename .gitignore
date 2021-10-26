@@ -3,6 +3,7 @@ node_modules
 dist
 .vscode
 out
-static/*.js
-static/*.js.map
-static/*.*.js
+src/*.js
+src/*.js.map
+src/*.*.js
+src/pages
